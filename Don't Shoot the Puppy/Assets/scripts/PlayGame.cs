@@ -6,9 +6,12 @@ public class PlayGame : MonoBehaviour
 {
 	public GameObject deathParticle;
 	public GameObject failMenu;
+	public GameObject sadSign;
 
 	GameObject puppy;
 	GameObject pivotPoint;
+	GameObject happySign;
+	GameObject turret;
 
 	bool canLose;
 	
@@ -16,6 +19,8 @@ public class PlayGame : MonoBehaviour
 	{
 		puppy = GameObject.Find ("puppy");
 		pivotPoint = GameObject.Find ("Pivot Point");
+		happySign = GameObject.Find ("sign_happy");
+		turret = GameObject.Find ("Turret");
 	}
 
 	public void StartGame () 
@@ -39,9 +44,13 @@ public class PlayGame : MonoBehaviour
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			GameObject.Destroy (puppy);
 			canLose = false;
+			happySign.SetActive(false);
+			sadSign.SetActive(true);
+			yield return new WaitForSeconds (1);
+			sadSign.SetActive(false);
+			turret.SetActive(false);
+			failMenu.SetActive (true);
 		}
-		yield return new WaitForSeconds (1);
-		failMenu.SetActive (true);
 	}
 
 	public void WinGame () 
