@@ -1,3 +1,3 @@
 Changelog:
 
-- Add all files
+- Test Git GUI
