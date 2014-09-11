@@ -53,8 +53,12 @@ public class PlayGame : MonoBehaviour
 		}
 	}
 
-	public void WinGame () 
+	public void WinGame (int level) 
 	{
-		Application.LoadLevel ("Level_2");
+		if(level > PlayerPrefs.GetInt ("playerLevel"))
+		{
+			PlayerPrefs.SetInt ("playerLevel", level);
+		}
+		Application.LoadLevel (level);
 	}
 }
