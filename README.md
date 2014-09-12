@@ -1,7 +1,6 @@
 Changelog:
 ===
 
-- Created save system
-- Added leveling system
-- Created alternate puppy animation
-- Created level 2
+- Added demo (lv 1 - 10)
+- Created new animation
+- Created new sign

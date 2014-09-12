@@ -42,7 +42,7 @@ public class PlayGame : MonoBehaviour
 			pivotPoint.GetComponent<Animator> ().SetBool ("fire", true);
 			pivotPoint.GetComponent<RotateTurret> ().enabled = false;
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
-			GameObject.Destroy (puppy);
+			puppy.SetActive(false);
 			canLose = false;
 			happySign.SetActive(false);
 			sadSign.SetActive(true);
@@ -59,6 +59,6 @@ public class PlayGame : MonoBehaviour
 		{
 			PlayerPrefs.SetInt ("playerLevel", level);
 		}
-		Application.LoadLevel (level);
+		Application.LoadLevel (level + 1);
 	}
 }
