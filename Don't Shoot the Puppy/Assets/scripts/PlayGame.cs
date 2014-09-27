@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class PlayGame : MonoBehaviour 
 {
 	public GameObject deathParticle;
-	public GameObject failMenu;
 	public GameObject sadSign;
 
+	GameObject failMenu;
 	GameObject puppy;
 	GameObject pivotPoint;
 	GameObject happySign;
 	GameObject turret;
+	GameObject aboutButton;
 
 	bool canLose;
 	
@@ -21,6 +22,9 @@ public class PlayGame : MonoBehaviour
 		pivotPoint = GameObject.Find ("Pivot Point");
 		happySign = GameObject.Find ("sign_happy");
 		turret = GameObject.Find ("Turret");
+		aboutButton = GameObject.Find ("about_button");
+
+		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
 	}
 
 	public void StartGame () 
@@ -49,16 +53,14 @@ public class PlayGame : MonoBehaviour
 			yield return new WaitForSeconds (1);
 			sadSign.SetActive(false);
 			turret.SetActive(false);
+			aboutButton.SetActive(false);
 			failMenu.SetActive (true);
 		}
 	}
 
 	public void WinGame (int level) 
 	{
-		if(level > PlayerPrefs.GetInt ("playerLevel"))
-		{
-			PlayerPrefs.SetInt ("playerLevel", level);
-		}
-		Application.LoadLevel (level + 1);
+		PlayerPrefs.SetInt ("playerLevel", level);
+		Application.LoadLevel (0);
 	}
 }

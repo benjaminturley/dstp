@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: c59cd84800c75554dbf9c89c148f801d
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - deathParticle: {fileID: 100002, guid: 4f9936225ae3fe74b8171fb57b9157ba, type: 2}
+  - failMenu: {fileID: 100004, guid: 2c9d9fe58aa17b043abafe09ae6905b1, type: 2}
+  - sadSign: {fileID: 100002, guid: 5e387fdb3b8a2464799152b6795d968e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

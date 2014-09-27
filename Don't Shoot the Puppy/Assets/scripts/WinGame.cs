@@ -12,6 +12,6 @@ public class WinGame : MonoBehaviour
 
 	void Win (int level)
 	{
-		GameObject.Find ("start_button").GetComponent<PlayGame>().WinGame(level);
+		GameObject.Find ("start_button").GetComponent<PlayGame>().WinGame(level + 1);
 	}
 }
