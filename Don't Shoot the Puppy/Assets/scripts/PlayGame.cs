@@ -11,10 +11,16 @@ public class PlayGame : MonoBehaviour
 	GameObject puppy;
 	GameObject happySign;
 	GameObject turret;
-	GameObject aboutButton;
+	public GameObject aboutButton;
+
+	int timer = 0;
+
+	public LevelScript ls;
 
 	bool canLose;
-	
+
+	Color color;
+
 	void Update ()
 	{
 		puppy = GameObject.Find ("puppy");
@@ -23,7 +29,11 @@ public class PlayGame : MonoBehaviour
 		aboutButton = GameObject.Find ("about_button");
 		sadSign = GameObject.Find ("sign_sad");
 
+		color = sadSign.GetComponent<SpriteRenderer>().color;
+
 		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
+
+		timer = (int)Time.time;
 	}
 
 	public void StartGame () 
@@ -36,12 +46,14 @@ public class PlayGame : MonoBehaviour
 	public void FailGame () 
 	{
 		StartCoroutine (doFailGame ());
+
+		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
 	}
 
 	IEnumerator doFailGame()
 	{
-		Color color = sadSign.GetComponent<SpriteRenderer>().color;
 		color.a = 255;
+		PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
 
 		if (canLose) 
 		{
@@ -59,9 +71,18 @@ public class PlayGame : MonoBehaviour
 		}
 	}
 
+
 	public void WinGame (int level) 
 	{
-		PlayerPrefs.SetInt ("playerLevel", level);
-		Application.LoadLevel (0);
+		Destroy (GameObject.Find("Level_"+PlayerPrefs.GetInt("currentLevel")+"(Clone)"));
+		PlayerPrefs.SetInt ("currentLevel", level);
+
+		if(PlayerPrefs.GetInt ("currentLevel") > PlayerPrefs.GetInt ("bestLevel"))
+		{
+			PlayerPrefs.SetInt ("bestLevel", PlayerPrefs.GetInt ("currentLevel"));
+		}
+		ls.progress ();
+
+		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
 	}
 }

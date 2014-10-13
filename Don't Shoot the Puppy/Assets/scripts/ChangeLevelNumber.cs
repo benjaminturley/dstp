@@ -7,9 +7,14 @@ public class ChangeLevelNumber : MonoBehaviour
 {
 	public string levelNumber;
 
+	void Start()
+	{
+		PlayerPrefs.SetInt ("currentLevel", 1);
+	}
+
 	void Update()
 	{
-		levelNumber = PlayerPrefs.GetInt("playerLevel").ToString ();
+		levelNumber = PlayerPrefs.GetInt("currentLevel").ToString ();
 		GetComponent<Text>().text = "Level " + levelNumber;
 	}
 }

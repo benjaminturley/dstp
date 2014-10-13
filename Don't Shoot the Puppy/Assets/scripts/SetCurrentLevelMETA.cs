@@ -7,7 +7,8 @@ public class SetCurrentLevelMETA : MonoBehaviour
 
 	void Start () 
 	{
-		PlayerPrefs.SetInt ("playerLevel", level);
+		PlayerPrefs.SetInt ("currentLevel", level);
+		PlayerPrefs.SetInt ("set", 0);
 	}
 
 }
