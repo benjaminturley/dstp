@@ -8,7 +8,7 @@ public class PlayGame : MonoBehaviour
 	public GameObject failMenu;
 
 	public GameObject sadSign;
-	GameObject puppy;
+	public GameObject puppy;
 	GameObject happySign;
 	GameObject turret;
 	public GameObject aboutButton;
@@ -50,6 +50,17 @@ public class PlayGame : MonoBehaviour
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
 	}
 
+	public void reset()
+	{
+		GetComponent<Text>().enabled = true;
+		puppy.SetActive(true);
+		happySign.SetActive(false);
+		sadSign.GetComponent<SpriteRenderer>().color = color;
+		turret.SetActive(true);
+		aboutButton.SetActive(true);
+		failMenu.SetActive (false);
+	}
+
 	IEnumerator doFailGame()
 	{
 		color.a = 255;
@@ -81,7 +92,9 @@ public class PlayGame : MonoBehaviour
 		{
 			PlayerPrefs.SetInt ("bestLevel", PlayerPrefs.GetInt ("currentLevel"));
 		}
+		canLose = false;
 		ls.progress ();
+		reset ();
 
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
 	}
