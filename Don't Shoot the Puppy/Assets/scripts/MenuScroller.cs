@@ -14,7 +14,6 @@ public class MenuScroller : MonoBehaviour
 	void Update()
 	{
 		puppy = pg.puppy;
-		Debug.Log (puppy.transform.rotation.ToString());
 	}
 
 	public void pointerDown()
