@@ -10,7 +10,7 @@ public class PlayGame : MonoBehaviour
 	public GameObject sadSign;
 	public GameObject puppy;
 	GameObject happySign;
-	GameObject turret;
+	public GameObject turret;
 	public GameObject aboutButton;
 
 	int timer = 0;
@@ -21,19 +21,25 @@ public class PlayGame : MonoBehaviour
 
 	Color color;
 
+	void Start ()
+	{
+		//PlayerPrefs.SetInt ("currentLevel", 1);
+	}
+
 	void Update ()
 	{
+		timer = (int)Time.time;
+		Debug.Log ("What I think is your current level: "+PlayerPrefs.GetInt ("currentLevel"));
+
 		puppy = GameObject.Find ("puppy");
 		happySign = GameObject.Find ("sign_happy");
 		turret = GameObject.Find ("Turret");
 		aboutButton = GameObject.Find ("about_button");
 		sadSign = GameObject.Find ("sign_sad");
-
+		
 		color = sadSign.GetComponent<SpriteRenderer>().color;
-
+		
 		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
-
-		timer = (int)Time.time;
 	}
 
 	public void StartGame () 
@@ -81,17 +87,9 @@ public class PlayGame : MonoBehaviour
 			failMenu.SetActive (true);
 		}
 	}
-
-
-	public void WinGame (int level) 
+	
+	public void WinGame () 
 	{
-		Destroy (GameObject.Find("Level_"+PlayerPrefs.GetInt("currentLevel")+"(Clone)"));
-		PlayerPrefs.SetInt ("currentLevel", level);
-
-		if(PlayerPrefs.GetInt ("currentLevel") > PlayerPrefs.GetInt ("bestLevel"))
-		{
-			PlayerPrefs.SetInt ("bestLevel", PlayerPrefs.GetInt ("currentLevel"));
-		}
 		canLose = false;
 		ls.progress ();
 		reset ();

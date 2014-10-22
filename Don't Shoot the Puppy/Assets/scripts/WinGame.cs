@@ -12,6 +12,13 @@ public class WinGame : MonoBehaviour
 
 	void Win (int level)
 	{
-		GameObject.Find ("start_button").GetComponent<PlayGame>().WinGame(level + 1);
+		GameObject.Find ("start_button").GetComponent<PlayGame>().WinGame();
+		PlayerPrefs.SetInt ("currentLevel", level + 1);
+		
+		if(PlayerPrefs.GetInt ("currentLevel") > PlayerPrefs.GetInt ("bestLevel"))
+		{
+			PlayerPrefs.SetInt ("bestLevel", PlayerPrefs.GetInt ("currentLevel"));
+		}
+		Destroy (GameObject.Find("Level_"+(level)+"(Clone)"));
 	}
 }

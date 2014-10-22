@@ -7,6 +7,8 @@ public class MenuScroller : MonoBehaviour
 	public float posOnUp;
 
 	public GameObject puppy;
+	public GameObject turret;
+
 	public PlayGame pg;
 
 	string currentPos = "center";

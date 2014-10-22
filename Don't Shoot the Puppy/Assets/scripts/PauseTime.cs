@@ -3,11 +3,6 @@ using System.Collections;
 
 public class PauseTime : MonoBehaviour 
 {
-	public void pause()
-	{
-		StartCoroutine (doPause ());
-	}
-	
 	IEnumerator doPause()
 	{
 		Time.timeScale = 0f;

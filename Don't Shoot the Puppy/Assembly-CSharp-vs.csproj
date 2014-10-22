@@ -60,6 +60,7 @@
      <Compile Include="Assets\scripts\Replay.cs" />
      <Compile Include="Assets\scripts\RotateTurret.cs" />
      <Compile Include="Assets\scripts\SetCurrentLevelMETA.cs" />
+     <Compile Include="Assets\scripts\ThrowAd.cs" />
      <Compile Include="Assets\scripts\TimeSpent.cs" />
      <Compile Include="Assets\scripts\WinGame.cs" />
  <Reference Include="UnityEngine.UI">

@@ -5,13 +5,16 @@ public class LevelScript : MonoBehaviour
 {
 	public GameObject[] levels;
 
+	public int META = 0;
+
 	void Start()
 	{
-		Instantiate(levels[0], new Vector3 (-2.756885f, 1.298685f, 0f), Quaternion.identity);  
+		PlayerPrefs.SetInt ("currentLevel", META);
+		Instantiate(levels[META-1], new Vector3 (-2.756885f, 1.298685f, 0f), Quaternion.identity);  
 	}
 
 	public void progress()
 	{
-		Instantiate(levels[PlayerPrefs.GetInt ("currentLevel") - 1], new Vector3 (-2.756885f, 1.298685f, 0f), Quaternion.identity);
+		Instantiate(levels[PlayerPrefs.GetInt ("currentLevel")], new Vector3 (-2.756885f, 1.298685f, 0f), Quaternion.identity);
 	}
 }
