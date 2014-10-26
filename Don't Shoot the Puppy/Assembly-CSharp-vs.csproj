@@ -57,11 +57,14 @@
      <Compile Include="Assets\scripts\PauseTime.cs" />
      <Compile Include="Assets\scripts\PlayGame.cs" />
      <Compile Include="Assets\scripts\PuppiesKilled.cs" />
+     <Compile Include="Assets\scripts\PushMessage.cs" />
      <Compile Include="Assets\scripts\Replay.cs" />
      <Compile Include="Assets\scripts\RotateTurret.cs" />
      <Compile Include="Assets\scripts\SetCurrentLevelMETA.cs" />
+     <Compile Include="Assets\scripts\SkipButton.cs" />
      <Compile Include="Assets\scripts\ThrowAd.cs" />
      <Compile Include="Assets\scripts\TimeSpent.cs" />
+     <Compile Include="Assets\scripts\TurnOnArrow.cs" />
      <Compile Include="Assets\scripts\WinGame.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>

@@ -17,7 +17,7 @@ public class PlayGame : MonoBehaviour
 
 	public LevelScript ls;
 
-	bool canLose;
+	public bool canLose;
 
 	Color color;
 
@@ -29,7 +29,6 @@ public class PlayGame : MonoBehaviour
 	void Update ()
 	{
 		timer = (int)Time.time;
-		Debug.Log ("What I think is your current level: "+PlayerPrefs.GetInt ("currentLevel"));
 
 		puppy = GameObject.Find ("puppy");
 		happySign = GameObject.Find ("sign_happy");
@@ -52,7 +51,6 @@ public class PlayGame : MonoBehaviour
 	public void FailGame () 
 	{
 		StartCoroutine (doFailGame ());
-
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
 	}
 
