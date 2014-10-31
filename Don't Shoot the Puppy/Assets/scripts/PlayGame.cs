@@ -9,9 +9,7 @@ public class PlayGame : MonoBehaviour
 
 	public GameObject sadSign;
 	public GameObject puppy;
-	GameObject happySign;
-	public GameObject turret;
-	public GameObject aboutButton;
+	public GameObject scroller;
 
 	int timer = 0;
 
@@ -31,9 +29,6 @@ public class PlayGame : MonoBehaviour
 		timer = (int)Time.time;
 
 		puppy = GameObject.Find ("puppy");
-		happySign = GameObject.Find ("sign_happy");
-		turret = GameObject.Find ("Turret");
-		aboutButton = GameObject.Find ("about_button");
 		sadSign = GameObject.Find ("sign_sad");
 		
 		color = sadSign.GetComponent<SpriteRenderer>().color;
@@ -57,12 +52,9 @@ public class PlayGame : MonoBehaviour
 	public void reset()
 	{
 		GetComponent<Text>().enabled = true;
-		puppy.SetActive(true);
-		happySign.SetActive(false);
 		sadSign.GetComponent<SpriteRenderer>().color = color;
-		turret.SetActive(true);
-		aboutButton.SetActive(true);
 		failMenu.SetActive (false);
+		scroller.SetActive(true);
 	}
 
 	IEnumerator doFailGame()
@@ -72,16 +64,15 @@ public class PlayGame : MonoBehaviour
 
 		if (canLose) 
 		{
-			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			puppy.SetActive(false);
+			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			canLose = false;
-			happySign.SetActive(false);
 			sadSign.GetComponent<SpriteRenderer>().color = color;
 			color.a = 0;
 			yield return new WaitForSeconds (1);
+			scroller.SetActive(false);
+			Destroy (GameObject.Find("Level_"+(PlayerPrefs.GetInt("currentLevel"))+"(Clone)"));
 			sadSign.GetComponent<SpriteRenderer>().color = color;
-			turret.SetActive(false);
-			aboutButton.SetActive(false);
 			failMenu.SetActive (true);
 		}
 	}
