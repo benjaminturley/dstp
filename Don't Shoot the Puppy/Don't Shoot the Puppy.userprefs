@@ -1,21 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\PlayGame.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\MenuScroller.cs">
     <Files>
-      <File FileName="Assets\scripts\SetCurrentLevelMETA.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\TimeSpent.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\ChieveScroller.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\LevelScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\ThrowAd.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\PauseTime.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\WinGame.cs" Line="22" Column="3" />
-      <File FileName="Assets\scripts\PlayGame.cs" Line="73" Column="30" />
-      <File FileName="Assets\scripts\Replay.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\TurnOnArrow.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\SkipButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\PushMessage.cs" Line="1" Column="19" />
-      <File FileName="Assets\scripts\TriggerBlack.cs" Line="2" Column="26" />
-      <File FileName="Assets\scripts\MenuScroller.cs" Line="18" Column="3" />
+      <File FileName="Assets\scripts\CountDownTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\SetSomethingActive.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\PushMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\PlayGame.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\ChangeLevelDirections.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\ChangeLevelNumber.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\META.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\ThrowAd.cs" Line="5" Column="19" />
+      <File FileName="Assets\scripts\MenuScroller.cs" Line="43" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

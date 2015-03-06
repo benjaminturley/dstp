@@ -12,6 +12,7 @@ public class PlayGame : MonoBehaviour
 	public GameObject scroller;
 
 	int timer = 0;
+	int downTime = 0;
 
 	public LevelScript ls;
 
@@ -64,6 +65,7 @@ public class PlayGame : MonoBehaviour
 
 		if (canLose) 
 		{
+			Handheld.Vibrate ();
 			puppy.SetActive(false);
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			canLose = false;
@@ -83,6 +85,7 @@ public class PlayGame : MonoBehaviour
 		ls.progress ();
 		reset ();
 
-		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
+		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
+		downTime = (int)Time.time;               
 	}
 }
