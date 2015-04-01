@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\Game\BestLevel.cs" />
      <Compile Include="Assets\scripts\Game\ChangeLevelDirections.cs" />
-     <Compile Include="Assets\scripts\Game\ChieveScroller.cs" />
      <Compile Include="Assets\scripts\Game\CountDownTimer.cs" />
      <Compile Include="Assets\scripts\Game\PauseTime.cs" />
      <Compile Include="Assets\scripts\Game\PuppiesKilled.cs" />
@@ -63,10 +62,10 @@
      <Compile Include="Assets\scripts\Levels\PlayGame.cs" />
      <Compile Include="Assets\scripts\Levels\Spawn.cs" />
      <Compile Include="Assets\scripts\Levels\WinGame.cs" />
+     <Compile Include="Assets\scripts\META\LevelCase.cs" />
      <Compile Include="Assets\scripts\META\META.cs" />
      <Compile Include="Assets\scripts\META\MenuDestroyer.cs" />
      <Compile Include="Assets\scripts\META\MenuRevealer.cs" />
-     <Compile Include="Assets\scripts\META\MenuScroller.cs" />
      <Compile Include="Assets\scripts\META\NullObjectHolder.cs" />
      <Compile Include="Assets\scripts\META\RotateTurret.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />

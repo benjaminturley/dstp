@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Spawn : MonoBehaviour 
 {
-	public GameObject objectToSpawn;
+	public GameObject[] itemList;
 
 	public void go(int level)
 	{
-		Instantiate(objectToSpawn, transform.position, transform.rotation);
+		Instantiate(itemList[level], transform.position, transform.rotation);
 	}
 }

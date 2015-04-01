@@ -7,9 +7,9 @@ public class PlayGame : MonoBehaviour
 	public GameObject deathParticle;
 	public GameObject failMenu;
 
-	public GameObject sadSign;
+	public GameObject happySign;
 	public GameObject puppy;
-	public GameObject scroller;
+	//public GameObject scroller;
 
 	int timer = 0;
 	int downTime = 0;
@@ -18,16 +18,16 @@ public class PlayGame : MonoBehaviour
 
 	public bool canLose;
 
-	Color color = ;
+	Color color;
 
 	void Update ()
 	{
 		timer = (int)Time.time;
 
 		puppy = GameObject.Find ("Puppy(Clone)");
-		sadSign = GameObject.Find ("sign_sad");
+		happySign = GameObject.Find ("sign_happy");
 		
-		color = sadSign.GetComponent<SpriteRenderer>().color;
+		color = happySign.GetComponent<SpriteRenderer>().color;
 		
 		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
 	}
@@ -35,7 +35,11 @@ public class PlayGame : MonoBehaviour
 	public void StartGame () 
 	{
 		GetComponent<Text>().enabled = false;
-		puppy.GetComponent<Animator>().SetBool ("go", true);
+
+		if(puppy.GetComponent<LevelCase>().playDefault)
+			puppy.GetComponent<Animator>().SetBool ("default", true);
+		else
+			puppy.GetComponent<Animator>().SetBool ("l"+GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel, true);
 		canLose = true;
 	}
 	
@@ -48,27 +52,28 @@ public class PlayGame : MonoBehaviour
 	public void reset()
 	{
 		GetComponent<Text>().enabled = true;
-		sadSign.GetComponent<SpriteRenderer>().color = color;
+		happySign.GetComponent<SpriteRenderer>().color = color;
 		failMenu.SetActive (false);
-		scroller.SetActive(true);
+		//scroller.SetActive(true);
+
+		Destroy(GameObject.Find("Puppy(Clone)"));
+		Destroy(GameObject.Find("Sign(Clone)"));
+		Destroy(GameObject.Find("Turret(Clone)"));
 	}
 
 	IEnumerator doFailGame()
 	{
-		color.a = 255;
-		PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
-
 		if (canLose) 
 		{
+			color.a = 0;
+			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
 			Handheld.Vibrate ();
-			puppy.SetActive(false);
+			puppy.GetComponent<SpriteRenderer>().color = color;
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			canLose = false;
-			sadSign.GetComponent<SpriteRenderer>().color = color;
-			color.a = 0;
+			happySign.GetComponent<SpriteRenderer>().color = color;
 			yield return new WaitForSeconds (1);
-			scroller.SetActive(false);
-			sadSign.GetComponent<SpriteRenderer>().color = color;
+			//scroller.SetActive(false);
 			failMenu.SetActive (true);
 		}
 	}
