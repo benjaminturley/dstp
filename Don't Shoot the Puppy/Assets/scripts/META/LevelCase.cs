@@ -5,7 +5,7 @@ public class LevelCase : MonoBehaviour
 {
 	public bool playDefault = true;
 	GameObject gm;
-	int[] levels = {1};
+	int[] levels = {1, 3, 4, 5, 8, 9};
 
 	void Start()
 	{

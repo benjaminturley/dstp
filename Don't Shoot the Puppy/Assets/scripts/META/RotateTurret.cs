@@ -9,7 +9,7 @@ public class RotateTurret : MonoBehaviour
 
 	void Update () 
 	{
-		targetTransform = GameObject.Find("Puppy(Clone)").transform;
+		targetTransform = GameObject.FindGameObjectWithTag("Puppy").transform;
 		Vector3 vectorToTarget = targetTransform.position - transform.position;
 		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);

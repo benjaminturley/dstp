@@ -24,7 +24,7 @@ public class PlayGame : MonoBehaviour
 	{
 		timer = (int)Time.time;
 
-		puppy = GameObject.Find ("Puppy(Clone)");
+		puppy = GameObject.FindGameObjectWithTag ("Puppy");
 		happySign = GameObject.Find ("sign_happy");
 		
 		color = happySign.GetComponent<SpriteRenderer>().color;
@@ -46,7 +46,7 @@ public class PlayGame : MonoBehaviour
 	public void FailGame () 
 	{
 		StartCoroutine (doFailGame ());
-		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + timer);
+		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 	}
 
 	public void reset()
@@ -56,20 +56,27 @@ public class PlayGame : MonoBehaviour
 		failMenu.SetActive (false);
 		//scroller.SetActive(true);
 
-		Destroy(GameObject.Find("Puppy(Clone)"));
-		Destroy(GameObject.Find("Sign(Clone)"));
-		Destroy(GameObject.Find("Turret(Clone)"));
+		Destroy(GameObject.FindGameObjectWithTag("Puppy"));
+		Destroy(GameObject.FindGameObjectWithTag("Sign"));
+		Destroy(GameObject.FindGameObjectWithTag("Turret"));
 	}
 
 	IEnumerator doFailGame()
 	{
 		if (canLose) 
 		{
+			GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 1;
 			color.a = 0;
 			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
 			Handheld.Vibrate ();
 			puppy.GetComponent<SpriteRenderer>().color = color;
-			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
+			puppy.GetComponent<Animator>().SetBool ("idle", true);
+
+			if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 5)
+				GameObject.Find("arrow").SetActive(false);
+			else
+				Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
+
 			canLose = false;
 			happySign.GetComponent<SpriteRenderer>().color = color;
 			yield return new WaitForSeconds (1);
