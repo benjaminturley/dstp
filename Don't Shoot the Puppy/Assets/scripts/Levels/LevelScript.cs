@@ -22,7 +22,5 @@ public class LevelScript : MonoBehaviour
 		puppySpawn.GetComponent<Spawn>().go(currentLevel);
 		signSpawn.GetComponent<Spawn>().go(currentLevel);
 		turretSpawn.GetComponent<Spawn>().go(currentLevel);
-
-		GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 5;
 	}
 }

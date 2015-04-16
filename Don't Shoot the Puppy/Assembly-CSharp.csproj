@@ -53,10 +53,10 @@
      <Compile Include="Assets\scripts\Game\Replay.cs" />
      <Compile Include="Assets\scripts\Game\SkipButton.cs" />
      <Compile Include="Assets\scripts\Game\TimeSpent.cs" />
+     <Compile Include="Assets\scripts\Game\TranslateMenu.cs" />
      <Compile Include="Assets\scripts\Levels\ChangeLevelNumber.cs" />
      <Compile Include="Assets\scripts\Levels\LevelScript.cs" />
      <Compile Include="Assets\scripts\Levels\PlayGame.cs" />
-     <Compile Include="Assets\scripts\Levels\Spawn.cs" />
      <Compile Include="Assets\scripts\Levels\WinGame.cs" />
      <Compile Include="Assets\scripts\META\ChangeCamera.cs" />
      <Compile Include="Assets\scripts\META\FailGameScript.cs" />
@@ -69,6 +69,7 @@
      <Compile Include="Assets\scripts\META\PushMessage.cs" />
      <Compile Include="Assets\scripts\META\RotateTurret.cs" />
      <Compile Include="Assets\scripts\META\SetSomethingActive.cs" />
+     <Compile Include="Assets\scripts\META\Spawn.cs" />
      <Compile Include="Assets\scripts\META\ThrowAd.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
