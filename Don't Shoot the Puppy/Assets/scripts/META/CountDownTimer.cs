@@ -7,6 +7,7 @@ public class CountDownTimer : MonoBehaviour
 	public double delay;
 	public int startTime;
 	public int remaining;
+	public bool count;
 
 	void Start()
 	{
@@ -17,7 +18,6 @@ public class CountDownTimer : MonoBehaviour
 	{
 		delay -= Time.deltaTime;
 		remaining = startTime - (int)(Time.deltaTime - delay);
-		Debug.Log ("Delay: "+ delay + " Time: "+ Time.time + " Remaining: "+ remaining);
 		GetComponent<Text> ().text = "" + (remaining);
 	}
 }

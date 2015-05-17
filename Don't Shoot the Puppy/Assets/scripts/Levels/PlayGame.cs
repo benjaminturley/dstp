@@ -79,8 +79,6 @@ public class PlayGame : MonoBehaviour
 	{
 		if (canLose) 
 		{
-
-			GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 5;
 			color.a = 0;
 			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
 			Handheld.Vibrate ();
@@ -89,6 +87,8 @@ public class PlayGame : MonoBehaviour
 
 			if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 5)
 				GameObject.Find("arrow").SetActive(false);
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 10)
+				GameObject.Find("Timer").SetActive(false);
 
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			canLose = false;
@@ -98,7 +98,7 @@ public class PlayGame : MonoBehaviour
 
 			yield return new WaitForSeconds (1);
 			PlayerPrefs.SetInt("ads", PlayerPrefs.GetInt("ads")+1);
-			if (PlayerPrefs.GetInt("ads") >= 2)
+			if (PlayerPrefs.GetInt("ads") >= 4)
 			{
 				ta.throwAd();
 				PlayerPrefs.SetInt("ads", 0);
