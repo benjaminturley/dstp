@@ -24,6 +24,11 @@ public class PlayGame : MonoBehaviour
 
 	Color color;
 
+	void Start()
+	{
+		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
+	}
+
 	void Update ()
 	{
 		timer = (int)Time.time;
@@ -32,8 +37,6 @@ public class PlayGame : MonoBehaviour
 		happySign = GameObject.Find ("sign_happy");
 		
 		color = happySign.GetComponent<SpriteRenderer>().color;
-		
-		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
 
 		flare = GameObject.Find("muzzle_flare_0");
 	}
@@ -90,6 +93,10 @@ public class PlayGame : MonoBehaviour
 				GameObject.Find("arrow").SetActive(false);
 			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 10)
 				GameObject.Find("Timer").SetActive(false);
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 15)
+				GameObject.Find("bug_0").SetActive(false);
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 16)
+				GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
 
 			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 			canLose = false;
