@@ -48,6 +48,7 @@ public class PlayGame : MonoBehaviour
 			puppy.GetComponent<Animator>().SetBool ("default", true);
 		else
 			puppy.GetComponent<Animator>().SetBool ("l"+GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel, true);
+
 		canLose = true;
 
 	}
@@ -110,8 +111,8 @@ public class PlayGame : MonoBehaviour
 	public void WinGame () 
 	{
 		canLose = false;
-		ls.progress ();
 		reset ();
+		ls.progress ();
 
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 		downTime = (int)Time.time;               
