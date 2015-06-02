@@ -79,4 +79,14 @@ public class DoSomething : MonoBehaviour
 	{
 		Destroy (GameObject.Find("anvil"));
 	}	
+
+	public void play()
+	{
+		GameObject.Find("play").GetComponent<Text>().enabled = true;
+	}
+
+	public void shake()
+	{
+		GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = true;
+	}
 }

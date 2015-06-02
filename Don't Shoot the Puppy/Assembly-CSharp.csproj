@@ -57,6 +57,7 @@
      <Compile Include="Assets\scripts\Levels\LevelScript.cs" />
      <Compile Include="Assets\scripts\Levels\PlayGame.cs" />
      <Compile Include="Assets\scripts\Levels\WinGame.cs" />
+     <Compile Include="Assets\scripts\META\CameraShake.cs" />
      <Compile Include="Assets\scripts\META\ChangeCamera.cs" />
      <Compile Include="Assets\scripts\META\ChangeLevelsText.cs" />
      <Compile Include="Assets\scripts\META\CountDownTimer.cs" />

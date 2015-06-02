@@ -101,6 +101,10 @@ public class PlayGame : MonoBehaviour
 				GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
 			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 21)
 				Destroy (GameObject.Find("anvil"));
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 23)
+				Destroy (GameObject.Find("play"));
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 24)
+				GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
 
 			spawnParticle();
 			canLose = false;
