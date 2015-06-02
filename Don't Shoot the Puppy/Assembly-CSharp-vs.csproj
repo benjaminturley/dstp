@@ -63,6 +63,7 @@
      <Compile Include="Assets\scripts\META\DoSomething.cs" />
      <Compile Include="Assets\scripts\META\FailGameScript.cs" />
      <Compile Include="Assets\scripts\META\GoToLevel.cs" />
+     <Compile Include="Assets\scripts\META\HideStartButton.cs" />
      <Compile Include="Assets\scripts\META\LevelCase.cs" />
      <Compile Include="Assets\scripts\META\META.cs" />
      <Compile Include="Assets\scripts\META\MenuDestroyer.cs" />

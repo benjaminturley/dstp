@@ -10,9 +10,9 @@ public class GoToLevel : MonoBehaviour
 
 	Color temp;
 	
-	public void Start()
+	public void Update()
 	{
-		PlayerPrefs.SetInt ("bestLevel", 13);
+
 		GetComponent<Image>().color = Color.white;
 
 		if(PlayerPrefs.GetInt ("bestLevel") >= 30)

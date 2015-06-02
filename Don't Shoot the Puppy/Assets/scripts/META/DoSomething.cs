@@ -47,4 +47,36 @@ public class DoSomething : MonoBehaviour
 	{
 		GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
 	}
+
+	public void changeDirectionsY()
+	{
+		GameObject.Find("title").GetComponent<Text>().text = "Shoot the Puppy";
+	}
+
+	public void changeDirectionsN()
+	{
+		GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
+	}
+
+	public void spawnParticle()
+	{
+		GameObject.Find("start_button").GetComponent<PlayGame>().spawnParticle();
+	}
+
+	public void unHinge()
+	{
+		GameObject anvil = GameObject.Find("anvil");
+		anvil.transform.parent = null;
+	}
+
+	public void dropAnvil()
+	{
+		GameObject anvil = GameObject.Find("anvil");
+		anvil.GetComponent<Animator>().SetTrigger("fall");
+	}
+
+	public void destroyAnvil()
+	{
+		Destroy (GameObject.Find("anvil"));
+	}	
 }

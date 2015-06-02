@@ -97,8 +97,12 @@ public class PlayGame : MonoBehaviour
 				GameObject.Find("bug_0").SetActive(false);
 			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 16)
 				GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 19)
+				GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
+			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 21)
+				Destroy (GameObject.Find("anvil"));
 
-			Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
+			spawnParticle();
 			canLose = false;
 			happySign.GetComponent<SpriteRenderer>().color = color;
 
@@ -123,5 +127,10 @@ public class PlayGame : MonoBehaviour
 
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 		downTime = (int)Time.time;               
+	}
+
+	public void spawnParticle()
+	{
+		Instantiate (deathParticle, puppy.transform.position, Quaternion.identity);
 	}
 }

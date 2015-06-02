@@ -18,7 +18,7 @@ public class TranslateMenu : MonoBehaviour
 	}
 	void Update()
 	{
-		if(leftButton && scroller.transform.position.x >= 17.7)
+		if(leftButton && scroller.transform.position.x >= 10)
 			GetComponent<Button>().interactable = false;
 		else if(!leftButton && scroller.transform.position.x <= -17.7)
 			GetComponent<Button>().interactable = false;
