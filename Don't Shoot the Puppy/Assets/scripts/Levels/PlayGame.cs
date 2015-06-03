@@ -11,7 +11,7 @@ public class PlayGame : MonoBehaviour
 	public GameObject puppy;
 	public GameObject leftArrow, rightArrow;
 
-	public GameObject flare;
+	public GameObject flare, gm;
 
 	public ThrowAd ta;
 
@@ -26,7 +26,8 @@ public class PlayGame : MonoBehaviour
 
 	void Start()
 	{
-		failMenu = GameObject.Find ("GameManager").GetComponent<NullObjectHolder>().failMenu;
+		gm = GameObject.Find ("GameManager");
+		failMenu = gm.GetComponent<NullObjectHolder>().failMenu;
 	}
 
 	void Update ()
@@ -50,7 +51,7 @@ public class PlayGame : MonoBehaviour
 		if(puppy.GetComponent<LevelCase>().playDefault)
 			puppy.GetComponent<Animator>().SetBool ("default", true);
 		else
-			puppy.GetComponent<Animator>().SetBool ("l"+GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel, true);
+			puppy.GetComponent<Animator>().SetBool ("l"+gm.GetComponent<LevelScript>().currentLevel, true);
 
 		canLose = true;
 
@@ -60,6 +61,8 @@ public class PlayGame : MonoBehaviour
 	{
 		StartCoroutine (doFailGame ());
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
+
+		gm.GetComponent<LevelScript>().currentLevel = 0;
 
 		rightArrow.SetActive(true);
 		leftArrow.SetActive(true);
@@ -89,22 +92,32 @@ public class PlayGame : MonoBehaviour
 			puppy.GetComponent<SpriteRenderer>().color = color;
 			puppy.GetComponent<Animator>().SetBool ("idle", true);
 
-			if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 5)
+			if(gm.GetComponent<LevelScript>().currentLevel == 5)
 				GameObject.Find("arrow").SetActive(false);
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 10)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 10)
 				GameObject.Find("Timer").SetActive(false);
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 15)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 15)
 				GameObject.Find("bug_0").SetActive(false);
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 16)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 16)
 				GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 19)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 19)
 				GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 21)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 21)
 				Destroy (GameObject.Find("anvil"));
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 23)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 23)
 				Destroy (GameObject.Find("play"));
-			else if(GameObject.Find ("GameManager").GetComponent<LevelScript>().currentLevel == 24)
+			else if(gm.GetComponent<LevelScript>().currentLevel == 24)
 				GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
+			else if(gm.GetComponent<LevelScript>().currentLevel == 25)
+			{
+				GameObject level = GameObject.Find ("level");
+				level.GetComponent<Text>().text = "Level "+(gm.GetComponent<LevelScript>().currentLevel + 1);
+				level.GetComponent<ChangeLevelNumber>().enabled = true;
+			}
+			else if(gm.GetComponent<LevelScript>().currentLevel == 28)
+				Destroy(GameObject.Find ("click"));
+			else if(gm.GetComponent<LevelScript>().currentLevel == 29)
+				Time.timeScale = 1;
 
 			spawnParticle();
 			canLose = false;

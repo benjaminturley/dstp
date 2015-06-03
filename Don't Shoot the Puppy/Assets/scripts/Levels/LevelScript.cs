@@ -18,7 +18,11 @@ public class LevelScript : MonoBehaviour
 
 	public void progress()
 	{
-		currentLevel++;
+		if(currentLevel < 29)
+			currentLevel++;
+		else
+			currentLevel = 0;
+
 		puppySpawn.GetComponent<Spawn>().go(currentLevel);
 		signSpawn.GetComponent<Spawn>().go(currentLevel);
 		turretSpawn.GetComponent<Spawn>().go(currentLevel);

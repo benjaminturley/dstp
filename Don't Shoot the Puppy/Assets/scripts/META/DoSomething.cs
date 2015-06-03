@@ -89,4 +89,29 @@ public class DoSomething : MonoBehaviour
 	{
 		GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = true;
 	}
+
+	public void changeNumber()
+	{
+		GameObject level = GameObject.Find ("level");
+		level.GetComponent<ChangeLevelNumber>().enabled = false;
+		level.GetComponent<Text>().text = "Level "+Random.Range(1, 30);
+	}
+
+	public void killNumber()
+	{
+		GameObject level = GameObject.Find ("level");
+		level.GetComponent<Text>().text = "Level "+(GameObject.Find("GameManager").GetComponent<LevelScript>().currentLevel + 1);
+		level.GetComponent<ChangeLevelNumber>().enabled = true;
+	}
+
+	public void slowTime()
+	{
+		Time.timeScale -= .19f;
+	}
+
+	public void resetTime()
+	{
+		Time.timeScale = 1;
+	
+	}
 }
