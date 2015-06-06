@@ -11,7 +11,9 @@ public class PlayGame : MonoBehaviour
 	public GameObject puppy;
 	public GameObject leftArrow, rightArrow;
 
-	public GameObject flare, gm;
+	public GameObject flare, gm, crown;
+
+	public int levelCount = 0;
 
 	public ThrowAd ta;
 
@@ -28,6 +30,7 @@ public class PlayGame : MonoBehaviour
 	{
 		gm = GameObject.Find ("GameManager");
 		failMenu = gm.GetComponent<NullObjectHolder>().failMenu;
+		crown = GameObject.Find("crown");
 	}
 
 	void Update ()
@@ -40,6 +43,9 @@ public class PlayGame : MonoBehaviour
 		color = happySign.GetComponent<SpriteRenderer>().color;
 
 		flare = GameObject.Find("muzzle_flare_0");
+
+		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
+			crown.GetComponent<SpriteRenderer>().enabled = true;
 	}
 
 	public void StartGame () 
@@ -59,10 +65,47 @@ public class PlayGame : MonoBehaviour
 	
 	public void FailGame () 
 	{
+		if(gm.GetComponent<LevelScript>().currentLevel == 29)
+		{
+			Time.timeScale = 1;
+			GetComponent<AcheivementSaver>().Save("n");
+		}
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 23)
+			Destroy (GameObject.Find("play"));
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 2)
+			GetComponent<AcheivementSaver>().Save("h");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 15)
+			GetComponent<AcheivementSaver>().Save("k");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 11)
+			GetComponent<AcheivementSaver>().Save("m");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 13)
+			GetComponent<AcheivementSaver>().Save("l");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 27 || gm.GetComponent<LevelScript>().currentLevel == 22)
+			GetComponent<AcheivementSaver>().Save("o");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 21)
+			GetComponent<AcheivementSaver>().Save("p");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 3)
+			GetComponent<AcheivementSaver>().Save("q");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 19)
+			GetComponent<AcheivementSaver>().Save("w");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 28)
+			GetComponent<AcheivementSaver>().Save("u");
+
+		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
+			GetComponent<AcheivementSaver>().Save("v");
+
 		StartCoroutine (doFailGame ());
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
-
-		gm.GetComponent<LevelScript>().currentLevel = 0;
 
 		rightArrow.SetActive(true);
 		leftArrow.SetActive(true);
@@ -86,6 +129,8 @@ public class PlayGame : MonoBehaviour
 	{
 		if (canLose) 
 		{
+			levelCount = 0;
+			gm.GetComponent<LevelScript>().currentLevel = 0;
 			color.a = 0;
 			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
 			Handheld.Vibrate ();
@@ -104,8 +149,6 @@ public class PlayGame : MonoBehaviour
 				GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
 			else if(gm.GetComponent<LevelScript>().currentLevel == 21)
 				Destroy (GameObject.Find("anvil"));
-			else if(gm.GetComponent<LevelScript>().currentLevel == 23)
-				Destroy (GameObject.Find("play"));
 			else if(gm.GetComponent<LevelScript>().currentLevel == 24)
 				GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
 			else if(gm.GetComponent<LevelScript>().currentLevel == 25)
@@ -116,8 +159,6 @@ public class PlayGame : MonoBehaviour
 			}
 			else if(gm.GetComponent<LevelScript>().currentLevel == 28)
 				Destroy(GameObject.Find ("click"));
-			else if(gm.GetComponent<LevelScript>().currentLevel == 29)
-				Time.timeScale = 1;
 
 			spawnParticle();
 			canLose = false;
@@ -143,7 +184,12 @@ public class PlayGame : MonoBehaviour
 		ls.progress ();
 
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
-		downTime = (int)Time.time;               
+		downTime = (int)Time.time;  
+
+		levelCount++;
+
+		if(levelCount >= 30)
+			GetComponent<AcheivementSaver>().Save("r");
 	}
 
 	public void spawnParticle()

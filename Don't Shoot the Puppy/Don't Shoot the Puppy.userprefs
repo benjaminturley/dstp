@@ -1,21 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Game\TimeSpent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Levels\PlayGame.cs">
     <Files>
-      <File FileName="Assets\scripts\META\DoSomething.cs" Line="114" Column="22" />
+      <File FileName="Assets\scripts\META\DoSomething.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\META\PauseTime.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\META\FailGameScript.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\META\ChangeLevelsText.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="33" Column="13" />
-      <File FileName="Assets\scripts\META\LevelCase.cs" Line="8" Column="106" />
+      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="66" Column="47" />
+      <File FileName="Assets\scripts\META\LevelCase.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\Game\TranslateMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\META\CameraShake.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\Levels\ChangeLevelNumber.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\LevelScript.cs" Line="21" Column="23" />
-      <File FileName="Assets\scripts\META\RotateTurret.cs" Line="12" Column="1" />
+      <File FileName="Assets\scripts\Levels\LevelScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\META\RotateTurret.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\Game\AcheivementSaver.cs" Line="10" Column="24" />
-      <File FileName="Assets\scripts\Game\PuppiesKilled.cs" Line="18" Column="48" />
-      <File FileName="Assets\scripts\Game\TimeSpent.cs" Line="19" Column="45" />
+      <File FileName="Assets\scripts\Game\PuppiesKilled.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Game\TimeSpent.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Game\BestLevel.cs" Line="9" Column="83" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -10,7 +10,7 @@ public class PushMessage : MonoBehaviour
 		notif.alertBody = "This app is attempting to steal your credit card number";
 		notif.fireDate = DateTime.Now;
 		NotificationServices.ScheduleLocalNotification(notif);
-		Debug.Log("THROWN");
+		Debug.Log("Threw Note");
 	}
 
 	void Update()
@@ -20,6 +20,11 @@ public class PushMessage : MonoBehaviour
 			Debug.Log(NotificationServices.localNotifications[0].alertBody);
 			Debug.Log ("Working!");
 			NotificationServices.ClearLocalNotifications();
+		}
+
+		if(NotificationServices.localNotificationCount > 0)
+		{
+			GetComponent<AcheivementSaver>().Save("j");
 		}
 	}
 }

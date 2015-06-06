@@ -14,6 +14,8 @@ public class AcheivementSaver : MonoBehaviour
 		updateTex();
 
 		//PlayerPrefs.SetString("ach", "");
+		//Debug.Log(PlayerPrefs.GetString("ach"));
+		//PlayerPrefs.SetString("ach", "abcdefghijklmnopqrstuvw");
 	}
 
 	public void Save(string str)

@@ -43,6 +43,7 @@ public class GoToLevel : MonoBehaviour
 
 			warning.GetComponent<Animator>().SetTrigger("fade");
 		
+			GameObject.Find("start_button").GetComponent<PlayGame>().levelCount = 0;
 		}
 
 	}
