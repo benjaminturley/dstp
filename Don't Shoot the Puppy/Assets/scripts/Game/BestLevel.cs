@@ -6,6 +6,6 @@ public class BestLevel : MonoBehaviour
 {	
 	void Start () 
 	{
-		GetComponent<Text> ().text = "Best level: "+PlayerPrefs.GetInt ("bestLevel") + 1;
+		GetComponent<Text> ().text = "Best level: "+(PlayerPrefs.GetInt ("bestLevel") + 1);
 	}
 }

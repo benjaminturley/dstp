@@ -39,7 +39,12 @@ public class AcheivementSaver : MonoBehaviour
 	public void broadcast(string str)
 	{
 		if(key == str)
-			Debug.Log (name+" achieved!");
+		{
+			Debug.Log(name);
+			GameObject.Find("Acheivement").GetComponent<Animator>().SetTrigger("go");
+			GameObject.Find("thetext").GetComponent<Animator>().SetTrigger("go");
+			GameObject.Find("thetext").GetComponent<Text>().text = name +"\nachieved!";
+		}
 	}
 
 	public void updateTex()

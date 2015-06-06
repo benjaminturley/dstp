@@ -9,19 +9,20 @@ public class GoToLevel : MonoBehaviour
 	GameObject warning;
 
 	Color temp;
+
 	
 	public void Update()
 	{
 
 		GetComponent<Image>().color = Color.white;
 
-		if(PlayerPrefs.GetInt ("bestLevel") >= 30)
+		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
 			clickable = true;
 
-		else if(PlayerPrefs.GetInt ("bestLevel") >= 20 && int.Parse(this.name) <= 20)
+		else if(PlayerPrefs.GetInt ("bestLevel") >= 20 && int.Parse(this.name) <= 19)
 			clickable = true;
 
-		else if(PlayerPrefs.GetInt ("bestLevel") >= 10 && int.Parse(this.name) <= 10)
+		else if(PlayerPrefs.GetInt ("bestLevel") >= 10 && int.Parse(this.name) <= 9)
 			clickable = true;
 
 		else if(int.Parse(this.name) == 1)
