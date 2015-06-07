@@ -4,25 +4,62 @@ using UnityEngine.UI;
 
 public class TranslateMenu : MonoBehaviour 
 {
-	public GameObject scroller;
-	public bool leftButton;
+	public GameObject chieves, select, title, level;
+	public static int position = 0;
+	public bool isRight = false;
 
 	public void MoveLeft()
 	{
-		scroller.transform.position = new Vector3(scroller.transform.position.x + 17.7f, scroller.transform.position.y, scroller.transform.position.z);
+		if(position == 0)
+		{
+			chieves.SetActive(true);
+			title.SetActive(false);
+			level.SetActive(false);
+
+			position = -1;
+		}
+
+		else 
+		{
+			select.SetActive(false);
+			title.SetActive(false);
+			level.SetActive(false);
+
+			position = 0;
+		}
+
 	}
 
 	public void MoveRight()
 	{
-		scroller.transform.position = new Vector3(scroller.transform.position.x - 17.7f, scroller.transform.position.y, scroller.transform.position.z);
+
+		if(position == 0)
+		{
+			select.SetActive(true);
+			title.SetActive(false);
+			level.SetActive(false);
+
+			position = 1;
+		}
+		
+		else 
+		{
+			chieves.SetActive(false);
+			title.SetActive(true);
+			level.SetActive(true);
+
+			position = 0;
+		}
+
 	}
 	void Update()
 	{
-		if(leftButton && scroller.transform.position.x >= 10)
+		if((isRight && position == 1) || (!isRight && position == -1))
 			GetComponent<Button>().interactable = false;
-		else if(!leftButton && scroller.transform.position.x <= -17.7)
-			GetComponent<Button>().interactable = false;
-		else 
+
+		else
 			GetComponent<Button>().interactable = true;
+
+
 	}
 }

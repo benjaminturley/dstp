@@ -19,10 +19,10 @@ public class GoToLevel : MonoBehaviour
 		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
 			clickable = true;
 
-		else if(PlayerPrefs.GetInt ("bestLevel") >= 20 && int.Parse(this.name) <= 19)
+		else if(PlayerPrefs.GetInt ("bestLevel") >= 19 && int.Parse(this.name) <= 20)
 			clickable = true;
 
-		else if(PlayerPrefs.GetInt ("bestLevel") >= 10 && int.Parse(this.name) <= 9)
+		else if(PlayerPrefs.GetInt ("bestLevel") >= 9 && int.Parse(this.name) <= 10)
 			clickable = true;
 
 		else if(int.Parse(this.name) == 1)

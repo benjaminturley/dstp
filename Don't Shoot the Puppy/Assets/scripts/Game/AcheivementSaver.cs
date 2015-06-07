@@ -12,6 +12,7 @@ public class AcheivementSaver : MonoBehaviour
 	void Start()
 	{
 		updateTex();
+	    broadcast("s");
 
 		//PlayerPrefs.SetString("ach", "");
 		//Debug.Log(PlayerPrefs.GetString("ach"));
@@ -41,7 +42,7 @@ public class AcheivementSaver : MonoBehaviour
 		if(key == str)
 		{
 			Debug.Log(name);
-			GameObject.Find("Acheivement").GetComponent<Animator>().SetTrigger("go");
+			GameObject.Find("AchieveBanner").GetComponent<Animator>().SetTrigger("go");
 			GameObject.Find("thetext").GetComponent<Animator>().SetTrigger("go");
 			GameObject.Find("thetext").GetComponent<Text>().text = name +"\nachieved!";
 		}

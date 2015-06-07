@@ -107,8 +107,6 @@ public class PlayGame : MonoBehaviour
 		StartCoroutine (doFailGame ());
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 
-		rightArrow.SetActive(true);
-		leftArrow.SetActive(true);
 	}
 
 	public void reset()
