@@ -1,24 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Game\AcheivementSaver.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Game\TranslateMenu.cs">
     <Files>
-      <File FileName="Assets\scripts\META\DoSomething.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\PauseTime.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\FailGameScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\ChangeLevelsText.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\LevelCase.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\TranslateMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\CameraShake.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\ChangeLevelNumber.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\LevelScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\RotateTurret.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\AcheivementSaver.cs" Line="16" Column="5" />
-      <File FileName="Assets\scripts\Game\PuppiesKilled.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\TimeSpent.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\BestLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\PushMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\META\GoToLevel.cs" Line="12" Column="1" />
+      <File FileName="Assets\scripts\Game\TranslateMenu.cs" Line="75" Column="1" />
+      <File FileName="Assets\scripts\META\GoToLevel.cs" Line="22" Column="79" />
+      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="109" Column="3" />
+      <File FileName="Assets\scripts\Game\AcheivementSaver.cs" Line="56" Column="1" />
+      <File FileName="Assets\scripts\META\META.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

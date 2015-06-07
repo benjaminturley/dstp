@@ -6,59 +6,68 @@ public class TranslateMenu : MonoBehaviour
 {
 	public GameObject chieves, select, title, level;
 	public static int position = 0;
-	public bool isRight = false;
+	public bool isRight = false, interactable = true;
 
 	public void MoveLeft()
 	{
-		if(position == 0)
+		if(interactable)
 		{
-			chieves.SetActive(true);
-			title.SetActive(false);
-			level.SetActive(false);
+			if(position == 0)
+			{
+				chieves.GetComponent<RectTransform>().position = new Vector3(300f, 150f, 0f);
+				title.SetActive(false);
+				level.SetActive(false);
 
-			position = -1;
+				position = -1;
+			}
+
+			else 
+			{
+				select.SetActive(false);
+				title.SetActive(true);
+				level.SetActive(true);
+
+				position = 0;
+			}
 		}
-
-		else 
-		{
-			select.SetActive(false);
-			title.SetActive(false);
-			level.SetActive(false);
-
-			position = 0;
-		}
-
 	}
 
 	public void MoveRight()
 	{
-
-		if(position == 0)
+		if(interactable)
 		{
-			select.SetActive(true);
-			title.SetActive(false);
-			level.SetActive(false);
+			if(position == 0)
+			{
+				select.SetActive(true);
+				title.SetActive(false);
+				level.SetActive(false);
 
-			position = 1;
+				position = 1;
+			}
+			
+			else 
+			{
+				chieves.GetComponent<RectTransform>().position = new Vector3(0f, -1000f, 0f);
+				title.SetActive(true);
+				level.SetActive(true);
+
+				position = 0;
+			}
 		}
-		
-		else 
-		{
-			chieves.SetActive(false);
-			title.SetActive(true);
-			level.SetActive(true);
-
-			position = 0;
-		}
-
 	}
 	void Update()
 	{
 		if((isRight && position == 1) || (!isRight && position == -1))
-			GetComponent<Button>().interactable = false;
+		{
+			interactable = false;
+			GetComponent<Image>().enabled = false;
+		}
 
 		else
-			GetComponent<Button>().interactable = true;
+		{
+			interactable = true;
+			GetComponent<Image>().enabled = true;
+		}
 
 
 	}
