@@ -13,9 +13,9 @@ public class TimeSpent : MonoBehaviour
 
 		if(m >= 10)
 			GetComponent<AcheivementSaver>().Save ("d");
-		if(m >= 30)
+		if(m >= 20)
 			GetComponent<AcheivementSaver>().Save ("e");
-		if(m >= 60)
+		if(m >= 30)
 			GetComponent<AcheivementSaver>().Save ("f");
 	}
 }

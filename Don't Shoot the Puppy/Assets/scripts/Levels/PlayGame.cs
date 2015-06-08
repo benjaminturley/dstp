@@ -60,6 +60,7 @@ public class PlayGame : MonoBehaviour
 			puppy.GetComponent<Animator>().SetBool ("l"+gm.GetComponent<LevelScript>().currentLevel, true);
 
 		canLose = true;
+		downTime = timer;
 
 	}
 	
@@ -105,6 +106,7 @@ public class PlayGame : MonoBehaviour
 			GetComponent<AcheivementSaver>().Save("v");
 
 		StartCoroutine (doFailGame ());
+
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 
 	}
@@ -181,8 +183,7 @@ public class PlayGame : MonoBehaviour
 		reset ();
 		ls.progress ();
 
-		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
-		downTime = (int)Time.time;  
+		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime)); 
 
 		levelCount++;
 

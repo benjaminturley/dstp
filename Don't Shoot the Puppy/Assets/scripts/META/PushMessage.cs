@@ -5,24 +5,24 @@ public class PushMessage : MonoBehaviour
 {
 	public void throwNote()
 	{
-		LocalNotification notif = new LocalNotification();
+		UnityEngine.iOS.LocalNotification notif = new UnityEngine.iOS.LocalNotification();
 		notif.alertAction = "iAlert Notification";
 		notif.alertBody = "This app is attempting to steal your credit card number";
 		notif.fireDate = DateTime.Now;
-		NotificationServices.ScheduleLocalNotification(notif);
+		UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(notif);
 		Debug.Log("Threw Note");
 	}
 
 	void Update()
 	{
-		if (NotificationServices.localNotificationCount > 0) 
+		if (UnityEngine.iOS.NotificationServices.localNotificationCount > 0) 
 		{
-			Debug.Log(NotificationServices.localNotifications[0].alertBody);
+			Debug.Log(UnityEngine.iOS.NotificationServices.localNotifications[0].alertBody);
 			Debug.Log ("Working!");
-			NotificationServices.ClearLocalNotifications();
+			UnityEngine.iOS.NotificationServices.ClearLocalNotifications();
 		}
 
-		if(NotificationServices.localNotificationCount > 0)
+		if(UnityEngine.iOS.NotificationServices.localNotificationCount > 0)
 		{
 			GetComponent<AcheivementSaver>().Save("j");
 		}

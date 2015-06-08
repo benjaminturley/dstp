@@ -14,7 +14,7 @@ public class TranslateMenu : MonoBehaviour
 		{
 			if(position == 0)
 			{
-				chieves.GetComponent<RectTransform>().position = new Vector3(300f, 150f, 0f);
+				chieves.SetActive(true);
 				title.SetActive(false);
 				level.SetActive(false);
 
@@ -47,7 +47,7 @@ public class TranslateMenu : MonoBehaviour
 			
 			else 
 			{
-				chieves.GetComponent<RectTransform>().position = new Vector3(0f, -1000f, 0f);
+				chieves.SetActive(false);
 				title.SetActive(true);
 				level.SetActive(true);
 
