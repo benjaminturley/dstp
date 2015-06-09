@@ -14,7 +14,7 @@ public class TranslateMenu : MonoBehaviour
 		{
 			if(position == 0)
 			{
-				chieves.SetActive(true);
+				chieves.GetComponent<RectTransform>().rotation = new Quaternion(0f, 0f, 0f, 0f);
 				title.SetActive(false);
 				level.SetActive(false);
 
@@ -47,7 +47,7 @@ public class TranslateMenu : MonoBehaviour
 			
 			else 
 			{
-				chieves.SetActive(false);
+				chieves.GetComponent<RectTransform>().Rotate(0, 90, 0);
 				title.SetActive(true);
 				level.SetActive(true);
 
