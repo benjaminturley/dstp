@@ -34,6 +34,7 @@ public class PlayGame : MonoBehaviour
 
 		//PlayerPrefs.SetString("ach", "");
 		//PlayerPrefs.SetInt("killed", 0);
+		//PlayerPrefs.SetInt("time", 0);
 	}
 
 	void Update ()
@@ -48,7 +49,10 @@ public class PlayGame : MonoBehaviour
 		flare = GameObject.Find("muzzle_flare_0");
 
 		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
+		{
 			crown.GetComponent<SpriteRenderer>().enabled = true;
+			GetComponent<AcheivementSaver>().Save("v");
+		}
 	}
 
 	public void StartGame () 
@@ -70,40 +74,39 @@ public class PlayGame : MonoBehaviour
 	public void FailGame () 
 	{
 		if(gm.GetComponent<LevelScript>().currentLevel == 29)
-		{
 			Time.timeScale = 1;
-			GetComponent<AcheivementSaver>().Save("n");
-		}
-
 		if(gm.GetComponent<LevelScript>().currentLevel == 23)
 			Destroy (GameObject.Find("play"));
-
 		if(gm.GetComponent<LevelScript>().currentLevel == 5)
 			GameObject.Find("arrow").SetActive(false);
-		else if(gm.GetComponent<LevelScript>().currentLevel == 10)
+		if(gm.GetComponent<LevelScript>().currentLevel == 10)
 			GameObject.Find("Timer").SetActive(false);
-		else if(gm.GetComponent<LevelScript>().currentLevel == 15)
-			GameObject.Find("bug_0").SetActive(false);
-		else if(gm.GetComponent<LevelScript>().currentLevel == 16)
+		if(gm.GetComponent<LevelScript>().currentLevel == 15)
+			GameObject.Find("bug").GetComponent<Animator>().SetTrigger("stop");
+		if(gm.GetComponent<LevelScript>().currentLevel == 16)
 			GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
-		else if(gm.GetComponent<LevelScript>().currentLevel == 19)
+		if(gm.GetComponent<LevelScript>().currentLevel == 19)
 			GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
-		else if(gm.GetComponent<LevelScript>().currentLevel == 21)
-			GameObject.Find("anvil").GetComponent<RawImage>().enabled = false;
-		else if(gm.GetComponent<LevelScript>().currentLevel == 24)
+		if(gm.GetComponent<LevelScript>().currentLevel == 21)
+			GameObject.Find("anvil").GetComponent<Image>().enabled = false;
+		if(gm.GetComponent<LevelScript>().currentLevel == 24)
 			GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
-		else if(gm.GetComponent<LevelScript>().currentLevel == 25)
+		if(gm.GetComponent<LevelScript>().currentLevel == 25)
 		{
 			GameObject level = GameObject.Find ("level");
 			level.GetComponent<Text>().text = "Level "+(gm.GetComponent<LevelScript>().currentLevel + 1);
 			level.GetComponent<ChangeLevelNumber>().enabled = true;
 		}
-		else if(gm.GetComponent<LevelScript>().currentLevel == 28)
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 23)
+			Destroy (GameObject.Find("play"));
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 28)
 			Destroy(GameObject.Find ("click"));
 
-		StartCoroutine (doFailGame ());
-
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
+
+		StartCoroutine (doFailGame ());
 
 	}
 
@@ -127,17 +130,6 @@ public class PlayGame : MonoBehaviour
 	{
 		if (canLose) 
 		{
-			levelCount = 0;
-			gm.GetComponent<LevelScript>().currentLevel = 0;
-			color.a = 0;
-			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
-			Handheld.Vibrate ();
-			puppy.GetComponent<SpriteRenderer>().color = color;
-			puppy.GetComponent<Animator>().SetBool ("idle", true);
-
-			if(gm.GetComponent<LevelScript>().currentLevel == 23)
-				Destroy (GameObject.Find("play"));
-			
 			if(gm.GetComponent<LevelScript>().currentLevel == 2)
 				GetComponent<AcheivementSaver>().Save("h");
 			
@@ -161,13 +153,20 @@ public class PlayGame : MonoBehaviour
 			
 			if(gm.GetComponent<LevelScript>().currentLevel == 19)
 				GetComponent<AcheivementSaver>().Save("w");
+
+			if(gm.GetComponent<LevelScript>().currentLevel == 29)
+				GetComponent<AcheivementSaver>().Save("n");
 			
 			if(gm.GetComponent<LevelScript>().currentLevel == 28)
 				GetComponent<AcheivementSaver>().Save("u");
 
-			
-			if(PlayerPrefs.GetInt ("bestLevel") >= 29)
-				GetComponent<AcheivementSaver>().Save("v");
+			levelCount = 0;
+			gm.GetComponent<LevelScript>().currentLevel = 0;
+			color.a = 0;
+			PlayerPrefs.SetInt ("killed", PlayerPrefs.GetInt ("killed") + 1);
+			Handheld.Vibrate ();
+			puppy.GetComponent<SpriteRenderer>().color = color;
+			puppy.GetComponent<Animator>().SetBool ("idle", true);
 
 			spawnParticle();
 			canLose = false;
@@ -186,6 +185,13 @@ public class PlayGame : MonoBehaviour
 			}
 			failMenu.SetActive (true);
 		}
+	}
+
+	public void levelWin()
+	{
+		canLose = false;
+		reset ();
+		ls.progress ();
 	}
 	
 	public void WinGame () 

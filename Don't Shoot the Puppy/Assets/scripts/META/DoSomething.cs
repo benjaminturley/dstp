@@ -35,7 +35,12 @@ public class DoSomething : MonoBehaviour
 
 	public void bugs()
 	{
-		GameObject.Find("bug_0").GetComponent<Animator>().SetTrigger("go");
+		GameObject.Find("bug").GetComponent<Animator>().SetTrigger("go");
+	}
+
+	public void killbugs()
+	{
+		GameObject.Find("bug").GetComponent<Animator>().SetTrigger("stop");
 	}
 
 	public void openHelp()
@@ -63,23 +68,17 @@ public class DoSomething : MonoBehaviour
 		GameObject.Find("start_button").GetComponent<PlayGame>().spawnParticle();
 	}
 
-	public void unHinge()
-	{
-		GameObject anvil = GameObject.Find("anvil");
-		anvil.transform.parent = null;
-	}
-
 	public void dropAnvil()
 	{
 		GameObject anvil = GameObject.Find("anvil");
-		anvil.GetComponent<RawImage>().enabled = true;
+		anvil.GetComponent<Image>().enabled = true;
 		anvil.GetComponent<Animator>().SetTrigger("fall");
 	}
 
-	public void destroyAnvil()
+	public void hideAnvil()
 	{
-		Destroy (GameObject.Find("anvil"));
-	}	
+		GameObject.Find("anvil").GetComponent<Image>().enabled = false;
+	}
 
 	public void play()
 	{

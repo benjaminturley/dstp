@@ -12,9 +12,9 @@ public class PuppiesKilled : MonoBehaviour
 
 		if(killed >= 20)
 			GetComponent<AcheivementSaver>().Save ("a");
-		if(killed >= 100)
+		if(killed >= 60)
 			GetComponent<AcheivementSaver>().Save ("b");
-		if(killed >= 300)
+		if(killed >= 180)
 			GetComponent<AcheivementSaver>().Save ("c");
 	}
 }

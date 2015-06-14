@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_2;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;UNITY_IPHONE;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;UNITY_IPHONE_API;UNITY_IOS;ENABLE_TEXTUREID_MAP;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_0_2;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;UNITY_IPHONE;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;UNITY_IPHONE_API;UNITY_IOS;ENABLE_TEXTUREID_MAP;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,6 +46,32 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Extensions\FlashLikeEvents\Events\Core\Events\EventDispatcher.cs" />
+     <Compile Include="Assets\Extensions\FlashLikeEvents\Events\Core\Events\EventDispatcherBase.cs" />
+     <Compile Include="Assets\Extensions\FlashLikeEvents\Events\Data\BaseEvent.cs" />
+     <Compile Include="Assets\Extensions\FlashLikeEvents\Events\Templates\CEvent.cs" />
+     <Compile Include="Assets\Extensions\FlashLikeEvents\Events\interfaces\IDispatcher.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Example\MNFeaturePreview.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Example\MNUseExample.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Core\MNP.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Core\MNPopup.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Core\MobileNativeDialog.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Core\MobileNativeMessage.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Core\MobileNativeRateUs.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Enum\MNDialogResult.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\Base\MNAndroidNative.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\Base\MNProxyPool.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\MNAndroidDialog.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\MNAndroidMessage.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\MNAndroidRateUsPopUp.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\MNIOSDialog.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\MNIOSMessage.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\MNIOSRateUsPopUp.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\base\MNIOSNative.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\WP8Impl\PopUps\MNWP8Dialog.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\WP8Impl\PopUps\MNWP8Message.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\WP8Impl\PopUps\MNWP8RateUsPopUp.cs" />
+     <Compile Include="Assets\Extensions\MobileNativePopUps\Scripts\Platfroms\WP8Impl\PopUps\base\BaseWP8Popup.cs" />
      <Compile Include="Assets\scripts\Game\AcheivementSaver.cs" />
      <Compile Include="Assets\scripts\Game\BestLevel.cs" />
      <Compile Include="Assets\scripts\Game\ChangeLevelDirections.cs" />
@@ -78,12 +104,16 @@
      <Compile Include="Assets\scripts\META\Spawn.cs" />
      <Compile Include="Assets\scripts\META\StayPut.cs" />
      <Compile Include="Assets\scripts\META\ThrowAd.cs" />
+     <Compile Include="Assets\scripts\META\WarningScript.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="WP8PopUps">
+ <HintPath>C:/Users/Benjamin/Documents/GitHub/dstp/Don't Shoot the Puppy/Assets/Plugins/WP8PopUps.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

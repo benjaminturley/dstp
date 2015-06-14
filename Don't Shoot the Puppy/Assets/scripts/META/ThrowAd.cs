@@ -14,8 +14,8 @@ public class ThrowAd : MonoBehaviour
 	public void throwAd() 
 	{
 		if (Advertisement.isSupported && Advertisement.isReady()) 
-			Advertisement.Show();
-
+			Advertisement.Show(null, new ShowOptions{ pause = false});
+		
 		else
 			Debug.Log("Platform not supported");
 	}	
