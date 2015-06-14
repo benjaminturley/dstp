@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Game\TranslateMenu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Game\AcheivementSaver.cs">
     <Files>
       <File FileName="Assets\scripts\META\MenuRevealer.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\TranslateMenu.cs" Line="50" Column="60" />
+      <File FileName="Assets\scripts\Levels\PlayGame.cs" Line="135" Column="52" />
+      <File FileName="Assets\scripts\Game\TranslateMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\META\GoToLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Game\AcheivementSaver.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Game\AcheivementSaver.cs" Line="15" Column="32" />
       <File FileName="Assets\scripts\Game\TimeSpent.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\META\ThrowAd.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

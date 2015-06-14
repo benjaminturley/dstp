@@ -31,6 +31,9 @@ public class PlayGame : MonoBehaviour
 		gm = GameObject.Find ("GameManager");
 		failMenu = gm.GetComponent<NullObjectHolder>().failMenu;
 		crown = GameObject.Find("crown");
+
+		//PlayerPrefs.SetString("ach", "");
+		//PlayerPrefs.SetInt("killed", 0);
 	}
 
 	void Update ()
@@ -75,35 +78,28 @@ public class PlayGame : MonoBehaviour
 		if(gm.GetComponent<LevelScript>().currentLevel == 23)
 			Destroy (GameObject.Find("play"));
 
-		if(gm.GetComponent<LevelScript>().currentLevel == 2)
-			GetComponent<AcheivementSaver>().Save("h");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 15)
-			GetComponent<AcheivementSaver>().Save("k");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 11)
-			GetComponent<AcheivementSaver>().Save("m");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 13)
-			GetComponent<AcheivementSaver>().Save("l");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 27 || gm.GetComponent<LevelScript>().currentLevel == 22)
-			GetComponent<AcheivementSaver>().Save("o");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 21)
-			GetComponent<AcheivementSaver>().Save("p");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 3)
-			GetComponent<AcheivementSaver>().Save("q");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 19)
-			GetComponent<AcheivementSaver>().Save("w");
-
-		if(gm.GetComponent<LevelScript>().currentLevel == 28)
-			GetComponent<AcheivementSaver>().Save("u");
-
-		if(PlayerPrefs.GetInt ("bestLevel") >= 29)
-			GetComponent<AcheivementSaver>().Save("v");
+		if(gm.GetComponent<LevelScript>().currentLevel == 5)
+			GameObject.Find("arrow").SetActive(false);
+		else if(gm.GetComponent<LevelScript>().currentLevel == 10)
+			GameObject.Find("Timer").SetActive(false);
+		else if(gm.GetComponent<LevelScript>().currentLevel == 15)
+			GameObject.Find("bug_0").SetActive(false);
+		else if(gm.GetComponent<LevelScript>().currentLevel == 16)
+			GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
+		else if(gm.GetComponent<LevelScript>().currentLevel == 19)
+			GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
+		else if(gm.GetComponent<LevelScript>().currentLevel == 21)
+			GameObject.Find("anvil").GetComponent<RawImage>().enabled = false;
+		else if(gm.GetComponent<LevelScript>().currentLevel == 24)
+			GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
+		else if(gm.GetComponent<LevelScript>().currentLevel == 25)
+		{
+			GameObject level = GameObject.Find ("level");
+			level.GetComponent<Text>().text = "Level "+(gm.GetComponent<LevelScript>().currentLevel + 1);
+			level.GetComponent<ChangeLevelNumber>().enabled = true;
+		}
+		else if(gm.GetComponent<LevelScript>().currentLevel == 28)
+			Destroy(GameObject.Find ("click"));
 
 		StartCoroutine (doFailGame ());
 
@@ -123,6 +119,8 @@ public class PlayGame : MonoBehaviour
 
 		rightArrow.SetActive(true);
 		leftArrow.SetActive(true);
+
+		GameObject.Find("about_button").GetComponent<Button>().interactable = true;
 	}
 
 	IEnumerator doFailGame()
@@ -137,34 +135,47 @@ public class PlayGame : MonoBehaviour
 			puppy.GetComponent<SpriteRenderer>().color = color;
 			puppy.GetComponent<Animator>().SetBool ("idle", true);
 
-			if(gm.GetComponent<LevelScript>().currentLevel == 5)
-				GameObject.Find("arrow").SetActive(false);
-			else if(gm.GetComponent<LevelScript>().currentLevel == 10)
-				GameObject.Find("Timer").SetActive(false);
-			else if(gm.GetComponent<LevelScript>().currentLevel == 15)
-				GameObject.Find("bug_0").SetActive(false);
-			else if(gm.GetComponent<LevelScript>().currentLevel == 16)
-				GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
-			else if(gm.GetComponent<LevelScript>().currentLevel == 19)
-				GameObject.Find("title").GetComponent<Text>().text = "Don't Shoot the Puppy";
-			else if(gm.GetComponent<LevelScript>().currentLevel == 21)
-				Destroy (GameObject.Find("anvil"));
-			else if(gm.GetComponent<LevelScript>().currentLevel == 24)
-				GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = false;
-			else if(gm.GetComponent<LevelScript>().currentLevel == 25)
-			{
-				GameObject level = GameObject.Find ("level");
-				level.GetComponent<Text>().text = "Level "+(gm.GetComponent<LevelScript>().currentLevel + 1);
-				level.GetComponent<ChangeLevelNumber>().enabled = true;
-			}
-			else if(gm.GetComponent<LevelScript>().currentLevel == 28)
-				Destroy(GameObject.Find ("click"));
+			if(gm.GetComponent<LevelScript>().currentLevel == 23)
+				Destroy (GameObject.Find("play"));
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 2)
+				GetComponent<AcheivementSaver>().Save("h");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 15)
+				GetComponent<AcheivementSaver>().Save("k");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 11)
+				GetComponent<AcheivementSaver>().Save("m");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 13)
+				GetComponent<AcheivementSaver>().Save("l");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 27 || gm.GetComponent<LevelScript>().currentLevel == 22)
+				GetComponent<AcheivementSaver>().Save("o");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 21)
+				GetComponent<AcheivementSaver>().Save("p");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 3)
+				GetComponent<AcheivementSaver>().Save("q");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 19)
+				GetComponent<AcheivementSaver>().Save("w");
+			
+			if(gm.GetComponent<LevelScript>().currentLevel == 28)
+				GetComponent<AcheivementSaver>().Save("u");
+
+			
+			if(PlayerPrefs.GetInt ("bestLevel") >= 29)
+				GetComponent<AcheivementSaver>().Save("v");
 
 			spawnParticle();
 			canLose = false;
 			happySign.GetComponent<SpriteRenderer>().color = color;
 
 			flare.GetComponent<Animator>().SetTrigger("fire");
+
+			GameObject.Find("about_button").GetComponent<Button>().interactable = false;
 
 			yield return new WaitForSeconds (1);
 			PlayerPrefs.SetInt("ads", PlayerPrefs.GetInt("ads")+1);

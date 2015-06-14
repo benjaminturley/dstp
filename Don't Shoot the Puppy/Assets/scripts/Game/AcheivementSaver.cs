@@ -11,7 +11,6 @@ public class AcheivementSaver : MonoBehaviour
 
 	void Start()
 	{
-		//PlayerPrefs.SetString("ach", "");
 		//Debug.Log(PlayerPrefs.GetString("ach"));
 		//PlayerPrefs.SetString("ach", "abcdefghijklmnopqrstuvw");
 

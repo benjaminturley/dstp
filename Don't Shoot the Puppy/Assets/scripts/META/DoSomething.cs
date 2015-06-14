@@ -72,6 +72,7 @@ public class DoSomething : MonoBehaviour
 	public void dropAnvil()
 	{
 		GameObject anvil = GameObject.Find("anvil");
+		anvil.GetComponent<RawImage>().enabled = true;
 		anvil.GetComponent<Animator>().SetTrigger("fall");
 	}
 
