@@ -114,4 +114,30 @@ public class DoSomething : MonoBehaviour
 		Time.timeScale = 1;
 	
 	}
+
+	public void throwNote()
+	{
+		GameObject.Find("popup").GetComponent<Animator>().SetTrigger("open");
+	}
+
+	public void closeNote()
+	{
+		GameObject.Find("popup").GetComponent<Animator>().SetTrigger("close");
+	}
+
+	public void throwAd()
+	{
+		GameObject ad = GameObject.Find("ad");
+		ad.GetComponent<RectTransform>().rotation = new Quaternion(0f, 0f, 0f, 0f);
+		((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Play();
+		ad.GetComponent<AudioSource>().Play();
+	}
+
+	public void closeAd()
+	{
+		GameObject ad = GameObject.Find("ad");
+		ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
+		ad.GetComponent<AudioSource>().Stop();
+		((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Stop();
+	}
 }

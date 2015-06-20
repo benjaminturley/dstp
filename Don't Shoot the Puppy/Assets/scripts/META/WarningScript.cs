@@ -8,7 +8,8 @@ public class WarningScript : MonoBehaviour
 
 		#if UNITY_IOS
 
-		if(UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPhone
+		if(!(PlayerPrefs.GetInt("warned") == 1) &&
+			(UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPhone
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPhone3G
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPhone3GS
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPhone4
@@ -16,7 +17,10 @@ public class WarningScript : MonoBehaviour
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPodTouch1Gen
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPodTouch2Gen
 		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPodTouch3Gen
-		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPodTouch4Gen){}
+		   || UnityEngine.iOS.Device.generation == UnityEngine.iOS.DeviceGeneration.iPodTouch4Gen))
+		{
+			PlayerPrefs.SetInt("warned", 1);
+		}
 
 		else
 			Destroy(gameObject);

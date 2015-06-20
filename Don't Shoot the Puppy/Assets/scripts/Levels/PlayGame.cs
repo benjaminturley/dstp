@@ -104,6 +104,17 @@ public class PlayGame : MonoBehaviour
 		if(gm.GetComponent<LevelScript>().currentLevel == 28)
 			Destroy(GameObject.Find ("click"));
 
+		if(gm.GetComponent<LevelScript>().currentLevel == 8)
+			GameObject.Find("popup").GetComponent<Animator>().SetTrigger("close");
+
+		if(gm.GetComponent<LevelScript>().currentLevel == 3)
+		{
+			GameObject ad = GameObject.Find("ad");
+			ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
+			ad.GetComponent<AudioSource>().Stop();
+			((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Stop();
+		}
+
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
 
 		StartCoroutine (doFailGame ());
