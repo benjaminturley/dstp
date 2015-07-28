@@ -3,13 +3,20 @@ using System.Collections;
 
 public class ChangeCamera : MonoBehaviour 
 {
+	GameObject cam;
+
+	void Start()
+	{
+		cam = GameObject.Find("Main Camera");
+	}
 
 	public void ReRender () 
 	{
-		GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 1; 
+		cam.GetComponent<Camera>().orthographicSize = 1; 
 	}
+
 	public void PostRender()
 	{
-		GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 5;
+		cam.GetComponent<Camera>().orthographicSize = 5;
 	}
 }

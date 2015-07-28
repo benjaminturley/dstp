@@ -35,6 +35,9 @@ public class PlayGame : MonoBehaviour
 		//PlayerPrefs.SetString("ach", "");
 		//PlayerPrefs.SetInt("killed", 0);
 		//PlayerPrefs.SetInt("time", 0);
+
+		Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+		cam.aspect = 19f/10f;
 	}
 
 	void Update ()
@@ -82,7 +85,7 @@ public class PlayGame : MonoBehaviour
 		if(gm.GetComponent<LevelScript>().currentLevel == 10)
 			GameObject.Find("Timer").SetActive(false);
 		if(gm.GetComponent<LevelScript>().currentLevel == 15)
-			GameObject.Find("bug").GetComponent<Animator>().SetTrigger("stop");
+			GameObject.Find("bug").GetComponent<Animator>().SetBool("go", false);
 		if(gm.GetComponent<LevelScript>().currentLevel == 16)
 			GameObject.Find("about_menu_button").GetComponent<Animator>().SetBool("open", false);
 		if(gm.GetComponent<LevelScript>().currentLevel == 19)
@@ -105,14 +108,16 @@ public class PlayGame : MonoBehaviour
 			Destroy(GameObject.Find ("click"));
 
 		if(gm.GetComponent<LevelScript>().currentLevel == 8)
-			GameObject.Find("popup").GetComponent<Animator>().SetTrigger("close");
+			GameObject.Find("popup").GetComponent<Animator>().SetBool("open", false);
 
 		if(gm.GetComponent<LevelScript>().currentLevel == 3)
 		{
 			GameObject ad = GameObject.Find("ad");
-			ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
 			ad.GetComponent<AudioSource>().Stop();
-			((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Stop();
+			ad.GetComponent<sequence>().go = false;
+
+			if(ad.GetComponent<RectTransform>().rotation.y == 0)
+				ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
 		}
 
 		PlayerPrefs.SetInt ("time", PlayerPrefs.GetInt ("time") + (timer - downTime));
@@ -143,6 +148,12 @@ public class PlayGame : MonoBehaviour
 		{
 			if(gm.GetComponent<LevelScript>().currentLevel == 2)
 				GetComponent<AcheivementSaver>().Save("h");
+
+			if(gm.GetComponent<LevelScript>().currentLevel == 3)
+				GetComponent<AcheivementSaver>().Save("q");
+
+			if(gm.GetComponent<LevelScript>().currentLevel == 8)
+				GetComponent<AcheivementSaver>().Save("j");
 			
 			if(gm.GetComponent<LevelScript>().currentLevel == 15)
 				GetComponent<AcheivementSaver>().Save("k");
@@ -158,9 +169,6 @@ public class PlayGame : MonoBehaviour
 			
 			if(gm.GetComponent<LevelScript>().currentLevel == 21)
 				GetComponent<AcheivementSaver>().Save("p");
-			
-			if(gm.GetComponent<LevelScript>().currentLevel == 3)
-				GetComponent<AcheivementSaver>().Save("q");
 			
 			if(gm.GetComponent<LevelScript>().currentLevel == 19)
 				GetComponent<AcheivementSaver>().Save("w");

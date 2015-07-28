@@ -35,12 +35,12 @@ public class DoSomething : MonoBehaviour
 
 	public void bugs()
 	{
-		GameObject.Find("bug").GetComponent<Animator>().SetTrigger("go");
+		GameObject.Find("bug").GetComponent<Animator>().SetBool("go", true);
 	}
 
 	public void killbugs()
 	{
-		GameObject.Find("bug").GetComponent<Animator>().SetTrigger("stop");
+		GameObject.Find("bug").GetComponent<Animator>().SetBool("go", false);
 	}
 
 	public void openHelp()
@@ -85,6 +85,11 @@ public class DoSomething : MonoBehaviour
 		GameObject.Find("play").GetComponent<Text>().enabled = true;
 	}
 
+	public void unplay()
+	{
+		GameObject.Find("play").GetComponent<Text>().enabled = false;
+	}
+
 	public void shake()
 	{
 		GameObject.Find("Main Camera").GetComponent<CameraShake>().enabled = true;
@@ -94,7 +99,7 @@ public class DoSomething : MonoBehaviour
 	{
 		GameObject level = GameObject.Find ("level");
 		level.GetComponent<ChangeLevelNumber>().enabled = false;
-		level.GetComponent<Text>().text = "Level "+Random.Range(1, 30);
+		level.GetComponent<Text>().text = "Level "+Random.Range(1, 15);
 	}
 
 	public void killNumber()
@@ -117,27 +122,28 @@ public class DoSomething : MonoBehaviour
 
 	public void throwNote()
 	{
-		GameObject.Find("popup").GetComponent<Animator>().SetTrigger("open");
+		GameObject.Find("popup").GetComponent<Animator>().SetBool("open", true);
 	}
 
 	public void closeNote()
 	{
-		GameObject.Find("popup").GetComponent<Animator>().SetTrigger("close");
+		GameObject.Find("popup").GetComponent<Animator>().SetBool("open", false);
 	}
 
 	public void throwAd()
 	{
 		GameObject ad = GameObject.Find("ad");
+		ad.GetComponent<sequence>().back();
 		ad.GetComponent<RectTransform>().rotation = new Quaternion(0f, 0f, 0f, 0f);
-		((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Play();
+		ad.GetComponent<sequence>().go = true;
 		ad.GetComponent<AudioSource>().Play();
 	}
 
 	public void closeAd()
 	{
 		GameObject ad = GameObject.Find("ad");
-		ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
 		ad.GetComponent<AudioSource>().Stop();
-		((MovieTexture)ad.GetComponent<RawImage>().mainTexture).Stop();
+		ad.GetComponent<sequence>().go = false;
+		ad.GetComponent<RectTransform>().Rotate(0, 90, 0);
 	}
 }
